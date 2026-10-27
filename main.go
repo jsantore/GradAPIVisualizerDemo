@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"log"
+	"time"
 )
 
 func main() {
@@ -15,9 +16,10 @@ func main() {
 	//}
 	bookData, err := getBookData("riordan")
 	if err != nil {
-		fmt.Println("Error fetching book data:", err)
+		log.Println("Error fetching book data:", err)
 		return
 	}
 	gui := *buildBookGUI(bookData)
+	time.Sleep(time.Millisecond * 1)
 	gui.ShowAndRun()
 }
